@@ -8,17 +8,28 @@ import app from './App.vue'
 import VueRouer from 'vue-router'
 Vue.use(VueRouer);
 
-import { Header } from 'mint-ui';
+import VueResource from 'vue-resource'
+Vue.use(VueResource);
+
+import axios from 'axios'
+Vue.prototype.$axios = axios;
+
+
+import {Header, Swipe, SwipeItem,Toast } from 'mint-ui';
 
 import './lib/mui/css/mui.css'
 import './lib/mui/css/icons-extra.css'
 
-import router  from "./router";
+import router from "./router";
 
 Vue.component(Header.name, Header);
+Vue.component(Swipe.name, Swipe);
+Vue.component(SwipeItem.name, SwipeItem);
 
-var vm=new Vue({
-    el:'#app',
-    render:c=>c(app),
+Vue.use(Toast);
+
+var vm = new Vue({
+    el: '#app',
+    render: c => c(app),
     router
 });
